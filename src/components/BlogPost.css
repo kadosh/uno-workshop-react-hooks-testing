@@ -7,3 +7,13 @@
     padding: 10px;
     border: 1px solid white;
 }
+
+.post-title {
+    font-weight: bolder;
+    margin-bottom: 8px;
+}
+
+.post-desc {
+    font-size: calc(8px + 2vmin);
+    margin: 0px 0px 8px;
+}

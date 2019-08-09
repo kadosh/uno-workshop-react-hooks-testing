@@ -35,6 +35,12 @@ export class BlogPost extends React.Component {
                 <div className="post-title">
                     {this.state.post.title}
                 </div>
+                {this.state.post.desc !== '' &&
+                    <p className="post-desc">
+                        {this.state.post.desc}
+                    </p>
+                }
+                Comments:
                 <CommentList postId={this.state.post.id} />
             </div>
         );

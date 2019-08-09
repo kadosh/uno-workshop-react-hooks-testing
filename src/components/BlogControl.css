@@ -1,0 +1,18 @@
+label {
+    margin-right: 10px;
+}
+
+input {
+    margin-right: 10px;
+}
+
+textarea {
+    height: 40px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+button {
+    height: 40px;
+    margin-right: 10px;
+}
