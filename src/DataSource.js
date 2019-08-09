@@ -2,19 +2,19 @@ import id from './utils';
 
 const store = {
     posts: [
-        { id: 1, title: 'Whatever', desc: '' },
-        { id: 2, title: 'Whatever 2', desc: '' },
-        { id: 3, title: 'Whatever 3', desc: '' },
-        { id: 4, title: 'Whatever 4 ', desc: '' },
-        { id: 5, title: 'Whatever 5', desc: '' },
+        { id: 1, title: 'Getting started with react', desc: 'React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.' },
+        { id: 2, title: 'Hooks at glance', desc: 'Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.' },
+        { id: 3, title: 'React context', desc: 'Context provides a way to pass data through the component tree without having to pass props down manually at every level.' },
+        { id: 4, title: 'Profiler API', desc: 'The Profiler measures how often a React application renders and what the “cost” of rendering is. Its purpose is to help identify parts of an application that are slow and may benefit from optimizations such as memoization.' },
+        { id: 5, title: 'React testing library', desc: 'React Testing Library builds on top of DOM Testing Library by adding APIs for working with React components.' },
     ],
 
     comments: [
-        { id: 6, comment: 'First Comment', postId: 1 },
-        { id: 7, comment: 'First Comment', postId: 2 },
-        { id: 8, comment: 'First Comment', postId: 3 },
-        { id: 9, comment: 'First Comment', postId: 4 },
-        { id: 10, comment: 'First Comment', postId: 5 },
+        { id: 6, comment: 'It was cool', postId: 1 },
+        { id: 7, comment: 'There\'s a typo on second paragraph', postId: 2 },
+        { id: 8, comment: 'Great article', postId: 3 },
+        { id: 9, comment: 'YAY!', postId: 4 },
+        { id: 10, comment: 'So, should we get rid of enzyme?', postId: 5 },
     ]
 };
 

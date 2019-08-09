@@ -1,5 +1,6 @@
 import React from 'react';
 import DataSource from '../DataSource';
+import './BlogControl.css';
 
 export class BlogControl extends React.Component {
     constructor(props) {

@@ -1,5 +1,6 @@
 import React from 'react';
 import DataSource from '../DataSource';
+import './CommentList.css';
 
 export class CommentList extends React.Component {
     constructor(props) {

@@ -33,6 +33,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   margin-top: 20px;
+  width: 60%;
 }
 
 @keyframes App-logo-spin {
