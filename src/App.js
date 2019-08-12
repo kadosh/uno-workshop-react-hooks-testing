@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import { BlogPost } from './components/BlogPost';
+import BlogPost from './components/BlogPost';
 import DataSource from './DataSource';
-import { BlogControl } from './components/BlogControl';
+import BlogControl from './components/BlogControl';
 
 class App extends React.Component {
   constructor(props) {

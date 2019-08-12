@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
-import { BlogControl } from './components/BlogControl';
-import { BlogPost } from './components/BlogPost';
+import BlogControl from './components/BlogControl';
+import BlogPost from './components/BlogPost';
 import DataSource from './DataSource';
 
 describe('render', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { CommentList } from './CommentList';
+import CommentList from './CommentList';
 import DataSource from '../DataSource';
 
 describe('render', () => {

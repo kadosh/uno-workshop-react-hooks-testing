@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { BlogPost } from './BlogPost';
-import { CommentList } from './CommentList';
+import BlogPost from './BlogPost';
+import CommentList from './CommentList';
 
 
 describe('render', () => {
@@ -10,7 +10,7 @@ describe('render', () => {
     });
 
     it('renders initial elements', () => {
-        const wrapper = shallow(<BlogPost id={1}/>);
+        const wrapper = shallow(<BlogPost id={1} />);
         expect(wrapper).toBeDefined();
         wrapper.update();
 

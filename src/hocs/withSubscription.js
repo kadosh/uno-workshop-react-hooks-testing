@@ -1,7 +1,7 @@
 import React from 'react';
 import DataSource from '../DataSource';
 
-export function withSubscription(WrappedComponent, selectData) {
+export default function withSubscription(WrappedComponent, selectData) {
 
     return class extends React.Component {
         constructor(props) {

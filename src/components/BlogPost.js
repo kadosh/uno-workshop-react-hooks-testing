@@ -1,9 +1,9 @@
 import React from 'react';
 import DataSource from '../DataSource';
-import { CommentList } from './CommentList';
+import CommentList from './CommentList';
 import './BlogPost.css';
 
-export class BlogPost extends React.Component {
+export default class BlogPost extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
