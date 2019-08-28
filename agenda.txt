@@ -1,0 +1,12 @@
+Unosquare Workshop - Easier code with react hooks tested with React Testing Library
+
+AGENDA
+
+- Repo, install and run
+- Project overview (structure); Running test; Jest and Enzyme
+- Introducing HOC; withSubscription HOC; [PARTICIPATION] => Complete refactor
+- Tests after refactor [CODE TIME]
+- Introducing hooks; create useSubscription hook; [PARTICIPATION] => Complete refactor
+- Test after refactor
+- Introducing React Testing Library; Why this library?
+- Refactoring tests;
