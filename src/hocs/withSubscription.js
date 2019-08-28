@@ -12,13 +12,15 @@ export default function withSubscription(WrappedComponent, selectData) {
             }
         }
 
+        unsubscribe = () => { };
+
         componentDidMount() {
             // ... that takes care of the subscription...
-            DataSource.subscribe(this.handleChange);
+            this.subscription = DataSource.subscribe(this.handleChange);
         }
 
         componentWillUnmount() {
-            // DataSource.removeChangeListener(this.handleChange);
+            this.unsubscribe();
         }
 
         handleChange() {

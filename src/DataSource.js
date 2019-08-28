@@ -57,6 +57,11 @@ DataSource.prototype.addComment = function (postId, comment) {
 
 DataSource.prototype.subscribe = function (subscriber) {
     this.subscribers.push(subscriber);
+
+    return () => {
+        const index = this.subscribers.indexOf(subscriber);
+        this.subscribers.splice(index, 1);
+    };
 };
 
 DataSource.prototype.getPost = function (id) {
@@ -72,7 +77,8 @@ DataSource.prototype.getComments = function (postId) {
 }
 
 DataSource.prototype.unsubscribe = function (subscriber) {
-    // Do nothing for now
+    const index = this.subscribers.indexOf(subscriber);
+    this.subscribers.splice(index, 1);
 };
 
 DataSource.prototype.inform = function () {

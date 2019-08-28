@@ -12,12 +12,14 @@ export default class BlogPost extends React.Component {
         };
     }
 
+    unsubscribe = () => { };
+
     componentDidMount() {
-        DataSource.subscribe(this.handleChange);
+        this.unsubscribe = DataSource.subscribe(this.handleChange);
     }
 
     componentWillUnmount() {
-        // DataSource.removeChangeListener(this.handleChange);
+        this.unsubscribe();
     }
 
     handleChange() {

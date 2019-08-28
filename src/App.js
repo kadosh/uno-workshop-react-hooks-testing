@@ -15,8 +15,14 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  unsubscribe = () => { };
+
   componentDidMount() {
-    DataSource.subscribe(this.handleChange);
+    this.unsubscribe = DataSource.subscribe(this.handleChange);
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   handleChange() {

@@ -12,14 +12,15 @@ export default class CommentList extends React.Component {
         };
     }
 
+    unsubscribe = () => { };
+
     componentDidMount() {
         // Subscribe to changes
-        DataSource.subscribe(this.handleChange);
+        this.unsubscribe = DataSource.subscribe(this.handleChange);
     }
 
     componentWillUnmount() {
-        // Clean up listener
-        // DataSource.subscribe(this.handleChange);
+        this.unsubscribe();
     }
 
     handleChange() {
