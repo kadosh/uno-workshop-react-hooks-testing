@@ -18,6 +18,11 @@ const store = {
     ]
 };
 
+const getRandomComment = () => {
+    const position = Math.floor(Math.random() * store.comments.length);
+    return store.comments[position].comment;
+};
+
 function DataSource() {
     this.store = store;
     this.subscribers = [];
@@ -42,6 +47,10 @@ DataSource.prototype.addPost = function (title, desc) {
 DataSource.prototype.addComment = function (postId, comment) {
     let newState = { ...this.store };
     let newComments = [...newState.comments];
+
+    if (!comment) {
+        comment = getRandomComment();
+    }
 
     newComments = this.store.comments.concat({
         id: id(),

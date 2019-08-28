@@ -7,9 +7,14 @@ export default class BlogPost extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        this.handleAddComment = this.handleAddComment.bind(this);
         this.state = {
             post: DataSource.getPost(props.id)
         };
+    }
+
+    handleAddComment() {
+        DataSource.addComment(this.state.post.id)
     }
 
     unsubscribe = () => { };
@@ -44,6 +49,7 @@ export default class BlogPost extends React.Component {
                 }
                 Comments:
                 <CommentList postId={this.state.post.id} />
+                <button className="add-comment-button" onClick={this.handleAddComment}>Add random comment</button>
             </div>
         );
     }

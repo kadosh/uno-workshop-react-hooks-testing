@@ -1,4 +1,5 @@
 .comment {
     background-color: darkslategray;
     font-size: calc(5px + 2vmin);
+    margin: 5px 0px;
 }

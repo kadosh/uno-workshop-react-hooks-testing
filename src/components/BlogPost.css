@@ -17,3 +17,9 @@
     font-size: calc(8px + 2vmin);
     margin: 0px 0px 8px;
 }
+
+.add-comment-button{
+    width: 200px;
+    align-self: flex-end;
+    margin: 0px;
+}

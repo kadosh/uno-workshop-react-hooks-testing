@@ -28,6 +28,7 @@ export default class BlogControl extends React.Component {
                 <input
                     type="text"
                     name="Title"
+                    className="title"
                     onChange={(event) => this.setState({ title: event.target.value })}
                     value={this.state.title}
                 />
@@ -35,6 +36,7 @@ export default class BlogControl extends React.Component {
                 <input
                     type="text"
                     name="Description"
+                    className="desc"
                     onChange={(event) => this.setState({ description: event.target.value })}
                     value={this.state.description}
                 />

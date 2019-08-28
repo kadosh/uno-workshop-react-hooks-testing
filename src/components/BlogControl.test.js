@@ -19,8 +19,8 @@ describe('render', () => {
 describe('behavior', () => {
     it('add a new post', () => {
         const wrapper = shallow(<BlogControl />);
-        wrapper.find('input').simulate('change', { target: { value: 'New post' } });
-        wrapper.find('textarea').simulate('change', { target: { value: 'New Description' } });
+        wrapper.find('input.title').simulate('change', { target: { value: 'New post' } });
+        wrapper.find('input.desc').simulate('change', { target: { value: 'New Description' } });
 
         expect(wrapper.state('title')).toMatch('New post');
         expect(wrapper.state('description')).toMatch('New Description');
