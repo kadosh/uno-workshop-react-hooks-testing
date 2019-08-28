@@ -25,9 +25,19 @@ export default class BlogControl extends React.Component {
         return (
             <div>
                 <label>Title</label>
-                <input type="text" name="Title" onChange={(event) => this.setState({ title: event.target.value })} value={this.state.title} />
+                <input
+                    type="text"
+                    name="Title"
+                    onChange={(event) => this.setState({ title: event.target.value })}
+                    value={this.state.title}
+                />
                 <label>Description</label>
-                <textarea type="text" name="Description" onChange={(event) => this.setState({ description: event.target.value })} value={this.state.description} />
+                <input
+                    type="text"
+                    name="Description"
+                    onChange={(event) => this.setState({ description: event.target.value })}
+                    value={this.state.description}
+                />
                 <button onClick={this.onAddPost}>Add post</button>
             </div>
         )
