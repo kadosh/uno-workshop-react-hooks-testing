@@ -4,9 +4,9 @@ AGENDA
 
 - Repo, install and run
 - Project overview (structure); Running test; Jest and Enzyme
-- Introducing HOC; withSubscription HOC; [PARTICIPATION] => Complete refactor
-- Tests after refactor [CODE TIME]
-- Introducing hooks; create useSubscription hook; [PARTICIPATION] => Complete refactor
-- Test after refactor
+- Introducing HOC; withSubscription HOC; [PARTICIPATION] => Complete refactor [CODE TIME]
+- Tests after refactor; Refactor tests [CODE TIME]
+- Introducing hooks; create useSubscription hook; [PARTICIPATION] => Complete refactor [CODE TIME]
+- Test after refactor; Refactor tests [CODE TIME]
 - Introducing React Testing Library; Why this library?
-- Refactoring tests;
+- Refactoring tests; [CODE TIME]
