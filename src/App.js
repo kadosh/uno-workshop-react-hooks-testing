@@ -2,10 +2,11 @@ import React from 'react';
 import './App.css';
 import BlogPost from './components/BlogPost';
 import BlogControl from './components/BlogControl';
-import withSubscription from './hocs/withSubscription';
+import DataSource from './DataSource';
+import useSubscription from './components/hooks/useSubscription';
 
 const App = (props) => {
-  const posts = props.data;
+  const [posts] = useSubscription(() => DataSource.getPosts());
   if (!posts)
     return null;
 
@@ -26,6 +27,4 @@ const App = (props) => {
   );
 }
 
-export default withSubscription(App, (ds, props) => {
-  return ds.getPosts();
-});
+export default App;
