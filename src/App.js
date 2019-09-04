@@ -1,57 +1,31 @@
 import React from 'react';
 import './App.css';
 import BlogPost from './components/BlogPost';
-import DataSource from './DataSource';
 import BlogControl from './components/BlogControl';
+import withSubscription from './hocs/withSubscription';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+const App = (props) => {
+  const posts = props.data;
+  if (!posts)
+    return null;
 
-    this.state = {
-      posts: DataSource.getPosts()
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  unsubscribe = () => { };
-
-  componentDidMount() {
-    this.unsubscribe = DataSource.subscribe(this.handleChange);
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe();
-  }
-
-  handleChange() {
-    // Update component state whenever the data source changes
-    this.setState({
-      posts: DataSource.getPosts()
-    });
-  }
-
-  render() {
-    if (!this.state.posts)
-      return null;
-
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1>
-            Reactjs workshop
-          </h1>
-          <BlogControl />
-          <div className="Blog-entries">
-            {this.state.posts.map(post => {
-              return <BlogPost id={post.id} key={post.id} />;
-            })}
-          </div>
-        </header>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>
+          Reactjs workshop
+        </h1>
+        <BlogControl />
+        <div className="Blog-entries">
+          {posts.map(post => {
+            return <BlogPost id={post.id} key={post.id} />;
+          })}
+        </div>
+      </header>
+    </div>
+  );
 }
 
-export default App;
+export default withSubscription(App, (ds, props) => {
+  return ds.getPosts();
+});
