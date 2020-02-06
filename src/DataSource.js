@@ -23,6 +23,18 @@ const getRandomComment = () => {
     return store.comments[position].comment;
 };
 
+const sortByPostIdFn = (a, b) => {
+    if (a.id > b.id) {
+        return -1;
+    }
+
+    if (b.id > a.id) {
+        return 1;
+    }
+
+    return 0;
+};
+
 function DataSource() {
     this.store = store;
     this.subscribers = [];
@@ -78,7 +90,7 @@ DataSource.prototype.getPost = function (id) {
 }
 
 DataSource.prototype.getPosts = function () {
-    return this.store.posts;
+    return [...this.store.posts].sort(sortByPostIdFn);
 }
 
 DataSource.prototype.getComments = function (postId) {
