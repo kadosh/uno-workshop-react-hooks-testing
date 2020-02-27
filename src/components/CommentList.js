@@ -1,42 +1,16 @@
 import React from 'react';
-import DataSource from '../DataSource';
 import './CommentList.css';
+import withSubscription from '../hocs/withSubscription';
 
-export default class CommentList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.state = {
-            // "DataSource" is some global data source
-            comments: DataSource.getComments(props.postId)
-        };
-    }
-
-    unsubscribe = () => { };
-
-    componentDidMount() {
-        // Subscribe to changes
-        this.unsubscribe = DataSource.subscribe(this.handleChange);
-    }
-
-    componentWillUnmount() {
-        this.unsubscribe();
-    }
-
-    handleChange() {
-        // Update component state whenever the data source changes
-        this.setState({
-            comments: DataSource.getComments(this.props.postId)
-        });
-    }
-
+class CommentList extends React.Component {
     render() {
-        if (!this.state.comments)
+        const comments = this.props.data;
+        if (!comments)
             return null;
 
         return (
             <div>
-                {this.state.comments.map((comment) => (
+                {comments.map((comment) => (
                     <div key={comment.id} className="comment">
                         {comment.comment}
                     </div>
@@ -45,3 +19,5 @@ export default class CommentList extends React.Component {
         );
     }
 }
+
+export default withSubscription(CommentList, (ds, props) => ds.getComments(props.postId))

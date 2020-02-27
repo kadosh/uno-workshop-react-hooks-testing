@@ -1,39 +1,13 @@
 import React from 'react';
 import './App.css';
 import BlogPost from './components/BlogPost';
-import DataSource from './DataSource';
 import BlogControl from './components/BlogControl';
+import withSubscription from './hocs/withSubscription';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      posts: DataSource.getPosts()
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  unsubscribe = () => { };
-
-  componentDidMount() {
-    this.unsubscribe = DataSource.subscribe(this.handleChange);
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe();
-  }
-
-  handleChange() {
-    // Update component state whenever the data source changes
-    this.setState({
-      posts: DataSource.getPosts()
-    });
-  }
-
   render() {
-    if (!this.state.posts)
+    const posts = this.props.data;
+    if (!posts)
       return null;
 
     return (
@@ -44,7 +18,7 @@ class App extends React.Component {
           </h1>
           <BlogControl />
           <div className="Blog-entries">
-            {this.state.posts.map(post => {
+            {posts.map(post => {
               return <BlogPost id={post.id} key={post.id} />;
             })}
           </div>
@@ -54,4 +28,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withSubscription(App, (ds) => ds.getPosts());
