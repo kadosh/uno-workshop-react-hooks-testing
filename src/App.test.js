@@ -4,6 +4,7 @@ import App from './App';
 import BlogControl from './components/BlogControl';
 import BlogPost from './components/BlogPost';
 import DataSource from './DataSource';
+import { act } from 'react-dom/test-utils';
 
 describe('render', () => {
   it('renders without crashing', () => {
@@ -23,7 +24,11 @@ describe('behavior', () => {
   it('receives new post', () => {
     const sut = mount(<App />);
     expect(sut.find(BlogPost).length).toBe(5);
-    DataSource.addPost("New post", "New description");
+
+    act(() => {
+      DataSource.addPost("New post", "New description");
+    });
+
     sut.update();
     expect(sut.find(BlogPost).length).toBe(6);
   });

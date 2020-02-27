@@ -10,6 +10,7 @@ const BlogPost = ({ id }) => {
     const handleAddComment = () => {
         DataSource.addComment(post.id)
     }
+
     if (!post)
         return null;
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import CommentList from './CommentList';
 import DataSource from '../DataSource';
+import { act } from 'react-dom/test-utils';
 
 describe('render', () => {
     it('render without crashing', () => {
@@ -19,11 +20,17 @@ describe('behavior', () => {
         const sut = mount(<CommentList postId={1} />);
         expect(sut.find('div.comment').length).toBe(1);
 
-        DataSource.addComment(1, 'Another one');
+        act(() => {
+            DataSource.addComment(1, 'Another one');
+        });
+
         sut.update();
         expect(sut.find('div.comment').length).toBe(2);
 
-        DataSource.addComment(1, 'Another one 2');
+        act(() => {
+            DataSource.addComment(1, 'Another one 2');
+        });
+        
         sut.update();
         expect(sut.find('div.comment').length).toBe(3);
     });
