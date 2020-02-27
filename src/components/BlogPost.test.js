@@ -1,21 +1,20 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, getAllByRole } from '@testing-library/react'
 import BlogPost from './BlogPost';
-import CommentList from './CommentList';
-
 
 describe('render', () => {
     it('renders without crashing', () => {
-        mount(<BlogPost />);
+        render(<BlogPost />);
     });
 
     it('renders initial elements', () => {
-        const wrapper = mount(<BlogPost id={1} />);
-        expect(wrapper).toBeDefined();
-        wrapper.update();
+        const wrapper = render(<BlogPost id={1} />);
 
-        expect(wrapper.find('div.post-title')).toBeDefined();
-        expect(wrapper.find(CommentList)).toBeDefined();
+        expect(wrapper.getByText(/Getting started with react/)).toBeDefined();
+        expect(wrapper.getByRole('list')).toBeDefined();
+
+        const commentsList = wrapper.getByRole('list');
+        expect(getAllByRole(commentsList, 'listitem')).toHaveLength(1);
     });
 });
 

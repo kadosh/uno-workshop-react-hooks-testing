@@ -23,7 +23,7 @@ export default class BlogControl extends React.Component {
 
     render() {
         return (
-            <div>
+            <div role="form">
                 <label>Title</label>
                 <input
                     type="text"

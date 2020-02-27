@@ -1,35 +1,30 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import App from './App';
-import BlogControl from './components/BlogControl';
-import BlogPost from './components/BlogPost';
 import DataSource from './DataSource';
-import { act } from 'react-dom/test-utils';
+import { render, act } from '@testing-library/react'
 
 describe('render', () => {
   it('renders without crashing', () => {
-    mount(<App />);
+    render(<App />);
   });
 
   it('renders initial elements', () => {
-    const sut = mount(<App />);
-    expect(sut.find(BlogControl)).toBeDefined();
-    expect(sut.find('div.Blog-entries')).toBeDefined();
-    expect(sut.find(BlogPost).length).toBe(5);
+    const sut = render(<App />);
+    expect(sut.getByRole('form')).toBeTruthy();
+    expect(sut.getAllByRole('list')).toHaveLength(6);
   });
 });
 
 
 describe('behavior', () => {
-  it('receives new post', () => {
-    const sut = mount(<App />);
-    expect(sut.find(BlogPost).length).toBe(5);
+  it('receives new post', async () => {
+    const sut = render(<App />);
+    expect(sut.getAllByRole('list')).toHaveLength(6);
 
     act(() => {
       DataSource.addPost("New post", "New description");
     });
 
-    sut.update();
-    expect(sut.find(BlogPost).length).toBe(6);
+    expect(sut.getAllByRole('list')).toHaveLength(7);
   });
 });

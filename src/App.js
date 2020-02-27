@@ -17,7 +17,7 @@ const App = () => {
           Reactjs workshop
           </h1>
         <BlogControl />
-        <div className="Blog-entries">
+        <div className="Blog-entries" role="list">
           {posts.map(post => {
             return <BlogPost id={post.id} key={post.id} />;
           })}

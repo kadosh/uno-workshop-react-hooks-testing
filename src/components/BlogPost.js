@@ -15,7 +15,7 @@ const BlogPost = ({ id }) => {
         return null;
 
     return (
-        <div className="Blog-post">
+        <div className="Blog-post" role="listitem">
             <div className="post-title">
                 {post.title}
             </div>

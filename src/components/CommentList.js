@@ -8,9 +8,9 @@ const CommentList = ({ postId }) => {
         return null;
 
     return (
-        <div>
+        <div role="list">
             {comments.map((comment) => (
-                <div key={comment.id} className="comment">
+                <div key={comment.id} className="comment" role="listitem">
                     {comment.comment}
                 </div>
             ))}
