@@ -1,23 +1,21 @@
 import React from 'react';
 import './CommentList.css';
-import withSubscription from '../hocs/withSubscription';
+import { useSubscription } from '../hooks/useSubscription';
 
-class CommentList extends React.Component {
-    render() {
-        const comments = this.props.data;
-        if (!comments)
-            return null;
+const CommentList = ({ postId }) => {
+    const comments = useSubscription((ds) => ds.getComments(postId));
+    if (!comments)
+        return null;
 
-        return (
-            <div>
-                {comments.map((comment) => (
-                    <div key={comment.id} className="comment">
-                        {comment.comment}
-                    </div>
-                ))}
-            </div>
-        );
-    }
-}
+    return (
+        <div>
+            {comments.map((comment) => (
+                <div key={comment.id} className="comment">
+                    {comment.comment}
+                </div>
+            ))}
+        </div>
+    );
+};
 
-export default withSubscription(CommentList, (ds, props) => ds.getComments(props.postId))
+export default CommentList;
